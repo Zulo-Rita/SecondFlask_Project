@@ -1,0 +1,55 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<h4>{{darbuotojas.vardas}}</h4>
+<p>Pavardė: {{darbuotojas.pavarde}}</p>
+<p>Gimimo metai: {{darbuotojas.gimimo_data}}</p>
+<p>Pareigos: {{darbuotojas.pareigos}}</p>
+<p>Skyriaus pavadinimas: {{darbuotojas.skyrius_pavadinimas}}</p>
+
+
+{% for uzduotis in darbuotojas.uzduotys %}
+
+<table>
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Užduotis</td>
+            <td>Užduoties aprašymas</td>
+            <td>Skirtas Laikas</td>
+            <td>Statusas</td>
+        </tr>
+    </thead>
+    <tbod>
+        <tr>
+            <td>{{ uzduotis.id }}</td>
+            <td>{{ uzduotis.uzduotis }}</td>
+            <td>{{ uzduotis.aprasymas }}</td>
+            <td>{{ uzduotis.skirtas_laikas }}</td>
+            <td>{{ uzduotis.statusas }}</td>
+            <td><p>
+            <a href="/uzduotys/redaguoti/{{uzduotis.id}}">Redaguoti</a>
+        </form>
+
+        </p></td>
+        </tr>
+    </tbod>
+</table>
+{% endfor %}
+
+<h5>Įvesti naują užduotį:</h5>
+<form action="" method="post">
+    <p>Užduoties pavadinimas: <input type="text" name="pavadinimolaukelis"></p>
+    <p>Aprašymas:<input type="text" name="aprasymolaukelis"</p>
+    <p>Skiriamas laikas:<input type="text" name="laikolaukelis"></p>
+    <p>Užduoties statusas: <input type="text" name="statusolaukelis"></p>
+    <p><input type="submit" value="Įrašyti pakeitimus į DB"></p>
+</form>
+
+
+
+{% endblock %}

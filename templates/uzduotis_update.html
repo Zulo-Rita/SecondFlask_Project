@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<h4>{{ uzduotis.uzduotis}} redaguoti: </h4>
+<form action="" method="post">
+    <p>Užduoties pavadinimas:</p>
+    <p><input type="text" name="pavadinimolaukelis" value="{{ uzduotis.uzduotis }}"></p>
+
+    <p>Aprašymas:</p>
+    <p><input type="text" name="aprasymolaukelis" value="{{ uzduotis.aprasymas }}"></p>
+
+    <p>Skiriamas laikas:</p>
+    <p><input type="text" name="laikolaukelis" value="{{ uzduotis.skirtas_laikas }}"></p>
+
+    <p>Užduoties statusas:</p>
+    <p><input type="text" name="statusolaukelis" value="{{ uzduotis.statusas }}"></p>
+
+    <p><input type="submit" value="Įrašyti pakeitimus į DB"></p>
+</form>
+
+{% endblock %}

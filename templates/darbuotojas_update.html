@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<h4>{{ darbuotojas.vardas}} redaguoti: </h4>
+<form action="" method="post">
+    <p>Darbuotojo vardas:</p>
+    <p><input type="text" name="vardolaukelis" value="{{ darbuotojas.vardas }}"></p>
+
+    <p>Darbuotojo pavardė:</p>
+    <p><input type="text" name="pavardeslaukelis" value="{{ darbuotojas.pavarde }}"></p>
+
+    <p>Darbuotojo gimimo data:</p>
+    <p><input type="text" name="gimimolaukelis" value="{{ darbuotojas.gimimo_data }}"></p>
+
+    <p>Darbuotojo pareigos:</p>
+    <p><input type="text" name="pareigulaukelis" value="{{ darbuotojas.pareigos }}"></p>
+
+    <p>Darbuotojo skyrius pavadinimas:</p>
+    <p><input type="text" name="skyriauslaukelis" value="{{ darbuotojas.skyrius_pavadinimas }}"></p>
+
+    <p><input type="submit" value="Įrašyti pakeitimus į DB"></p>
+</form>
+
+{% endblock %}

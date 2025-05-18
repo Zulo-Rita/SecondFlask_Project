@@ -1,0 +1,58 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Projektų lentelė</h1>
+
+<form action="" method="get">
+    <p>Vartotojo vardas:</p>
+    <p><input type="text" name="paieskoslaukelis"></p>
+    <p><input type="submit" value="filtruoti"></p>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Vardas</td>
+            <td>Pavarde</td>
+            <td>Gimimo data</td>
+            <td>Pareigos</td>
+            <td>Skyriaus pavadinimas</td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for darbuotojas in darbuotojai %}
+    <tr>
+        <td>{{ darbuotojas.id }}</td>
+        <td>{{ darbuotojas.vardas }}</td>
+        <td>{{ darbuotojas.pavarde }}</td>
+        <td>{{ darbuotojas.gimimo_data }}</td>
+        <td>{{ darbuotojas.pareigos }}</td>
+        <td>{{ darbuotojas.skyrius_pavadinimas }}</td>
+        <td><p>
+            <a href="/darbuotojas/{{darbuotojas.id}}">Žiūrėti</a>
+            <a href="/darbuotojas/edit/{{darbuotojas.id}}" >Redaguoti</a>
+            <form action="/darbuotojai/delete/{{darbuotojas.id}}" method="post" style="display:inline; text-align: center;">
+                <input type="submit" value="Ištrinti">
+             </form>
+
+        </p></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<h1>Įvesti naują darbuotoją:</h1>
+<form action="" method="post">
+    <p>Darbuotojo vardas: <input type="text" name="vardolaukelis"></p>
+    <p>Darbuotojo pavardė:<input type="text" name="pavardeslaukelis"</p>
+    <p>Darbuotojo gimimo metai laikas:<input type="text" name="gimimolaukelis"></p>
+    <p>Darbuotojo pareigos: <input type="text" name="pareigulaukelis"></p>
+    <p>Darbuotojui priskiriamo skyriaus pavadinimas: <input type="text" name="skyriauslaukelis"></p>
+    <p><input type="submit" value="Įrašyti į DB"></p>
+</form>
+
+
+{% endblock %}
